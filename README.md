@@ -15,7 +15,7 @@ mkdir cmf_kernel_workspace && cd cmf_kernel_workspace
 ```
 
 ### 2. Инициализация манифеста и скачивание исходников
-Утилита `repo` автоматически скачает тяжелую неизменяемую базу у Google, а исходники ядра Nothing и модулей — из наших форков:
+Утилита `repo` автоматически скачает тяжелую неизменяемую базу у Google, а исходники ядра Nothing и модулей — из форков (содержат изменения в bazel скриптах для успешной сборки):
 ```bash
 repo init -u https://github.com/nikita-dev-null/nothing_manifest_repo
 repo sync -c --no-tags
