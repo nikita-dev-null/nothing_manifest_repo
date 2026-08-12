@@ -18,7 +18,7 @@ repo sync -c --no-tags
 ```
 
 ### 3. Запуск компиляции
-После успешного завершения синхронизации скопируйте скрипт автоматической сборки в корень проекта и запустите его:
+После успешного завершения синхронизации запустите:
 ```bash
 python3 kernel_device_modules-6.1/scripts/gen_build_config.py -p mgk_64_k61 -o ./build.config.legacy -m user --kernel-defconfig-overlays ''
 
@@ -30,6 +30,45 @@ BUILD_CONFIG=build.config.legacy tools/bazel build \
   //kernel_device_modules-6.1:mgk_64_k61.user
 
 python3 /disk/cmf_kernel_workspace/android-kernel/tools/mkbootimg/mkbootimg.py   --kernel /disk/cmf_kernel_workspace/android-kernel/bazel-out/k8-fastbuild/bin/kernel_device_modules-6.1/mgk_64_k61_kernel_aarch64.user/Image.lz4   --header_version 4  -o custom_boot.img
+
+```
+
+### 4. Прошивка
+Только ядро
+```bash
+fastboot flash boot_a custom_boot.img
+```
+Или все
+```bash
+fastboot set_active a
+
+fastboot flash boot_a boot.img
+
+fastboot flash dtbo_a dtbo.img
+
+fastboot flash init_boot_a init_boot.img
+
+fastboot flash vendor_boot_a vendor_boot.img
+
+for i in apusys ccu connsys_bt connsys_gnss connsys_wifi dpm gpueb gz lk logo mcf_ota mcupm modem pi_img scp spmfw sspm tee vcp; do fastboot flash "${i}_a" "${i}.img"; done
+
+fastboot flash vbmeta_a vbmeta.img --disable-verity --disable-verification
+
+fastboot flash preloader_a preloader_raw.img
+
+fastboot flash vbmeta_system_a vbmeta_system.img --disable-verity --disable-verification
+
+fastboot flash vbmeta_vendor_a vbmeta_vendor.img --disable-verity --disable-verification
+
+fastboot reboot fastboot
+
+for i in odm_dlkm odm vendor_dlkm product vendor system_dlkm system_ext system; do for s in a b; do fastboot delete-logical-partition "${i}_${s}-cow"; fastboot delete-logical-partition "${i}_${s}"; fastboot create-logical-partition "${i}_${s}" 2; done; done
+
+for i in odm_dlkm odm vendor_dlkm product vendor system_dlkm system_ext system; do fastboot flash "${i}_a" "${i}.img"; done
+
+fastboot set_active a
+
+fastboot reboot
 
 ```
 
