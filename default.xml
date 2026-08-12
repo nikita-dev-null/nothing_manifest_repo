@@ -16,6 +16,8 @@
 
   <project path="kernel-6.1" name="android_kernel_6.1_nothing_mt6878" revision="security" remote="nikita-dev-null-github" />
   <project path="kernel_device_modules-6.1" name="android_kernel_device_modules_6.1_nothing_mt6878" revision="mt6878/Tetris/u" remote="nikita-dev-null-github" />
+  <project path="build/bazel_mgk_rules" name="android_kernel_bazel_mgk_rules" revision="main" remote="nikita-dev-null-github" />
+
 
   <!-- Uncomment for local testing only -->
   <!-- project path="kernel/tests" name="kernel/tests" revision="main-kernel" clone-depth="1" / -->
