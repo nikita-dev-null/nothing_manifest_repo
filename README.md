@@ -1,6 +1,6 @@
 # Манифест сборки ядра для Nothing CMF Phone (1) (mt6878)
 
-Этот репозиторий содержит манифест для утилиты `repo`. Он объединяет официальное GKI ядро от Google и кастомные форки для смартфона Nothing CMF Phone (1), позволяя развернуть окружение одной командой. Host Linux-x86_64.
+Этот репозиторий содержит манифест для утилиты `repo`. Он объединяет официальное GKI ядро от Google и кастомные форки для смартфона Nothing CMF Phone (1), позволяя развернуть окружение одной командой. Является исследовательской средой для изучения, модификации и тестирования исходного кода устройства Nothing CMF Phone (1). **Host Linux-x86_64**.
 
 ## ⚖️ Дисклеймер / Disclaimer
 
@@ -78,7 +78,8 @@ fastboot reboot
 -------
 
 ## Полезное
-[Стоковая прошивка Tetris_B4.1-260415-1709](https://github.com/spike0en/nothing_archive/releases/tag/Tetris_B4.1-260415-1709)
+[Стоковая прошивка Tetris_U2.6-240910-1735](https://android.googleapis.com/packages/ota-api/package/adf8245c2d0cd50895ddece5f2366da80b2675c4.zip)
+[Nothing Archive](https://github.com/spike0en/nothing_archive/releases/tag/Tetris_U2.6-240910-1735)
 
 ### Модификация system раздела (system.img из стоковой прошивки)
 ```bash
