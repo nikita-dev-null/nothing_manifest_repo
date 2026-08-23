@@ -78,8 +78,8 @@ fastboot reboot
 -------
 
 ## Полезное
-[Стоковая прошивка Tetris_U2.6-240910-1735](https://android.googleapis.com/packages/ota-api/package/adf8245c2d0cd50895ddece5f2366da80b2675c4.zip)
-[Nothing Archive](https://github.com/spike0en/nothing_archive/releases/tag/Tetris_U2.6-240910-1735)
+- [Стоковая прошивка Tetris_U2.6-240910-1735](https://android.googleapis.com/packages/ota-api/package/adf8245c2d0cd50895ddece5f2366da80b2675c4.zip)
+- [Nothing Archive](https://github.com/spike0en/nothing_archive/releases/tag/Tetris_U2.6-240910-1735)
 
 ### Модификация system раздела (system.img из стоковой прошивки)
 ```bash
