@@ -75,11 +75,12 @@ fastboot set_active a
 fastboot reboot
 
 ```
+-------
 
 ## Полезное
 [Стоковая прошивка Tetris_B4.1-260415-1709](https://github.com/spike0en/nothing_archive/releases/tag/Tetris_B4.1-260415-1709)
 
-## Модификация system раздела (system.img из стоковой прошивки)
+### Модификация system раздела (system.img из стоковой прошивки)
 ```bash
 # монтируем - режим только чтение!
 sudo mount -o loop system.img build/system/
@@ -90,7 +91,7 @@ sudo cp -a system/. system_work/
 # вносим изменения
 
 # собираем. UID узнать командой file system.img
-sudo mkfs.erofs -z lz4hc -U <UID> system_repacked.img system/
+sudo mkfs.erofs -z lz4hc -U <UID> system_repacked.img system_work/
 
 #прошить командой выше
 ```
